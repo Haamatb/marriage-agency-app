@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "96670932071",
+    "project_id": "off-hom",
+    "storage_bucket": "off-hom.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96670932071:android:bfd390ccb03ef2bdeb48c2",
+        "android_client_info": {
+          "package_name": "com.legaloffice.marriage_agency_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi5TEN8iQ0MGXUP_lLABS3zrazaW9W48Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
