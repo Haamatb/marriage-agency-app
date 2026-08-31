@@ -415,16 +415,17 @@ class _AppShellState extends ConsumerState<AppShell> {
                 ),
               ),
             ),
+          ),
 
-            // ── Main Content Area ───────────────────────────────────────────
-            Expanded(
-              child: _pages[_selectedIndex],
-            ),
-          ],
-        ),
+          // ── Main Content Area ───────────────────────────────────────────
+          Expanded(
+            child: _pages[_selectedIndex],
+          ),
+        ],
       ),
-    );
-  }
+    ),
+  );
+}
 }
 
 // ── Sidebar Navigation Item ───────────────────────────────────────────────────
