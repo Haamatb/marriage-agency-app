@@ -138,7 +138,7 @@ class _AppShellState extends ConsumerState<AppShell> {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFEF4444).withValues(alpha: 0.12),
+                  color: const Color(0xFFEF4444).withOpacity(0.12),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(Icons.logout_rounded, color: Color(0xFFEF4444), size: 22),
@@ -209,7 +209,7 @@ class _AppShellState extends ConsumerState<AppShell> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: isDark ? 0.25 : 0.03),
+                  color: Colors.black.withOpacity(isDark ? 0.25 : 0.03),
                   blurRadius: 10,
                   offset: const Offset(0, -2),
                 ),
@@ -260,7 +260,7 @@ class _AppShellState extends ConsumerState<AppShell> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: isDark ? 0.25 : 0.03),
+                    color: Colors.black.withOpacity(isDark ? 0.25 : 0.03),
                     blurRadius: 10,
                     offset: const Offset(2, 0),
                   ),

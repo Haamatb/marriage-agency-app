@@ -112,7 +112,7 @@ class _PendingFilesChecklistState extends State<PendingFilesChecklist> {
                 selected: checked,
                 onSelected: (v) => _toggle(doc, v),
                 backgroundColor: const Color(0xFFF9FAF9),
-                selectedColor: AppTheme.green.withValues(alpha: 0.15),
+                selectedColor: AppTheme.green.withOpacity(0.15),
                 checkmarkColor: AppTheme.green,
                 side: BorderSide(
                   color: checked

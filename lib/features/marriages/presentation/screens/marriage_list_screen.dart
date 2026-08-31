@@ -281,7 +281,7 @@ class _MarriageListScreenState extends ConsumerState<MarriageListScreen> {
               borderRadius: BorderRadius.circular(18),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.03),
+                  color: Colors.black.withOpacity(isDark ? 0.2 : 0.03),
                   blurRadius: 10,
                   offset: const Offset(0, 3),
                 ),
@@ -319,7 +319,7 @@ class _MarriageListScreenState extends ConsumerState<MarriageListScreen> {
               borderRadius: BorderRadius.circular(18),
               boxShadow: [
                 BoxShadow(
-                  color: (_selectedDateRange != null ? AppTheme.accentBlue : (isDark ? Colors.white : Colors.black)).withValues(alpha: 0.15),
+                  color: (_selectedDateRange != null ? AppTheme.accentBlue : (isDark ? Colors.white : Colors.black)).withOpacity(0.15),
                   blurRadius: 10,
                   offset: const Offset(0, 3),
                 ),
@@ -492,7 +492,7 @@ class _StatCard extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.03),
+              color: Colors.black.withOpacity(isDark ? 0.2 : 0.03),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
@@ -509,7 +509,7 @@ class _StatCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                    color: color.withValues(alpha: 0.15),
+                    color: color.withOpacity(0.15),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(icon, color: color, size: 14),
@@ -582,7 +582,7 @@ class _FilterChip extends StatelessWidget {
             boxShadow: selected
                 ? [
                     BoxShadow(
-                      color: (isDark ? Colors.white : Colors.black).withValues(alpha: 0.1),
+                      color: (isDark ? Colors.white : Colors.black).withOpacity(0.1),
                       blurRadius: 8,
                       offset: const Offset(0, 3),
                     )
@@ -641,7 +641,7 @@ class _MarriageCard extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: isDark ? 0.2 : 0.03),
+            color: Colors.black.withOpacity(isDark ? 0.2 : 0.03),
             blurRadius: 10,
             offset: const Offset(0, 3),
           ),
@@ -745,7 +745,7 @@ class _MarriageCard extends StatelessWidget {
                             Container(
                               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                               decoration: BoxDecoration(
-                                color: AppTheme.statusMissingFiles.withValues(alpha: 0.12),
+                                color: AppTheme.statusMissingFiles.withOpacity(0.12),
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Text(

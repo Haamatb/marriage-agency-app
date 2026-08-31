@@ -819,7 +819,7 @@ class _SectionHeader extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          Expanded(child: Divider(color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2))),
+          Expanded(child: Divider(color: Theme.of(context).colorScheme.primary.withOpacity(0.2))),
         ],
       ),
     );

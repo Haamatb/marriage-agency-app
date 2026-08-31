@@ -359,7 +359,7 @@ class _MarriageDetailScreenState extends ConsumerState<MarriageDetailScreen> {
       color: const Color(0xFFFFF8F8),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: AppTheme.statusMissingFiles.withValues(alpha: 0.3)),
+        side: BorderSide(color: AppTheme.statusMissingFiles.withOpacity(0.3)),
       ),
       child: Padding(
         padding: const EdgeInsets.all(14),
@@ -504,7 +504,7 @@ class _DetailGroupHeader extends StatelessWidget {
           const SizedBox(width: 8),
           Expanded(
             child: Divider(
-              color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.2),
+              color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
               height: 1,
             ),
           ),

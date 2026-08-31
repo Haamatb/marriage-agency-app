@@ -125,15 +125,15 @@ class _DeliveryCardState extends State<DeliveryCard>
         color: theme.cardColor,
         border: Border.all(
           color: isDelivered
-              ? AppTheme.statusCompleted.withValues(alpha: 0.4)
-              : Colors.grey.withValues(alpha: 0.2),
+              ? AppTheme.statusCompleted.withOpacity(0.4)
+              : Colors.grey.withOpacity(0.2),
           width: isDelivered ? 1.5 : 1,
         ),
         boxShadow: [
           BoxShadow(
             color: isDelivered
-                ? AppTheme.statusCompleted.withValues(alpha: 0.08)
-                : Colors.black.withValues(alpha: 0.04),
+                ? AppTheme.statusCompleted.withOpacity(0.08)
+                : Colors.black.withOpacity(0.04),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
