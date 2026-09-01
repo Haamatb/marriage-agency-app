@@ -42,7 +42,7 @@ class _AgencyFormScreenState extends ConsumerState<AgencyFormScreen>
   String _principalIdIssueDate = '';
   final _principalPhoneCtrl = TextEditingController();
 
-  // Tab 2 — موكل إليه
+  // Tab 2 — الوكيل
   final _agentNameCtrl = TextEditingController();
   String _agentIdType = 'بطاقة شخصية';
   final _agentIdNumCtrl = TextEditingController();
@@ -215,7 +215,7 @@ class _AgencyFormScreenState extends ConsumerState<AgencyFormScreen>
             tabs: const [
               Tab(text: 'بيانات وتاريخ الوكالة'),
               Tab(text: 'الموكل'),
-              Tab(text: 'الموكل إليه'),
+              Tab(text: 'الوكيل'),
               Tab(text: 'الشهود'),
             ],
           ),
@@ -253,7 +253,7 @@ class _AgencyFormScreenState extends ConsumerState<AgencyFormScreen>
                 _principalPhoneCtrl,
               ),
               _buildPartyTab(
-                'الموكل إليه',
+                'الوكيل',
                 _agentNameCtrl,
                 _agentIdType,
                 (v) => setState(() => _agentIdType = v),

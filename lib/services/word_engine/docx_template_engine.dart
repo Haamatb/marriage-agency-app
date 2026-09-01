@@ -6,6 +6,7 @@ import 'package:archive/archive.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path/path.dart' as p;
 
+import '../../core/utils/arabic_date_helper.dart';
 import '../../features/agencies/data/models/agency_model.dart';
 import '../../features/marriages/data/models/marriage_model.dart';
 import '../folder_service/archive_folder_service.dart';
@@ -97,12 +98,19 @@ class DocxTemplateEngine {
       marriage.husband.name,
     );
 
+    final hijriStr = ArabicDateHelper.formatHijriFull(marriage.hijriDate);
+    final gregorianStr = ArabicDateHelper.formatGregorianFull(marriage.gregorianDate);
+
     final placeholders = {
       'RECORD_NUMBER': marriage.recordNumber,
-      'HIJRI_DATE': marriage.hijriDate,
-      'GREGORIAN_DATE': marriage.gregorianDate != null
+      'HIJRI_DATE': hijriStr.isNotEmpty ? hijriStr : marriage.hijriDate,
+      'HIJRI_DATE_NUM': ArabicDateHelper.formatHijriNumeric(marriage.hijriDate),
+      'HIJRI_DATE_WORDS': ArabicDateHelper.formatHijriInWords(marriage.hijriDate),
+      'GREGORIAN_DATE': gregorianStr.isNotEmpty ? gregorianStr : (marriage.gregorianDate != null
           ? '${marriage.gregorianDate!.year}/${marriage.gregorianDate!.month.toString().padLeft(2, '0')}/${marriage.gregorianDate!.day.toString().padLeft(2, '0')}'
-          : '',
+          : ''),
+      'GREGORIAN_DATE_NUM': ArabicDateHelper.formatGregorianNumeric(marriage.gregorianDate),
+      'GREGORIAN_DATE_WORDS': ArabicDateHelper.formatGregorianInWords(marriage.gregorianDate),
       // Husband
       'HUSBAND_NAME': marriage.husband.name,
       'HUSBAND_ID_TYPE': marriage.husband.idType,
@@ -176,14 +184,19 @@ class DocxTemplateEngine {
       marriage.husband.name,
     );
 
-    final gregorianStr = marriage.gregorianDate != null
-        ? '${marriage.gregorianDate!.year}/${marriage.gregorianDate!.month.toString().padLeft(2, '0')}/${marriage.gregorianDate!.day.toString().padLeft(2, '0')}'
-        : '';
+    final hijriStr = ArabicDateHelper.formatHijriFull(marriage.hijriDate);
+    final gregorianStr = ArabicDateHelper.formatGregorianFull(marriage.gregorianDate);
 
     final placeholders = {
       'RECORD_NUMBER': marriage.recordNumber,
-      'HIJRI_DATE': marriage.hijriDate,
-      'GREGORIAN_DATE': gregorianStr,
+      'HIJRI_DATE': hijriStr.isNotEmpty ? hijriStr : marriage.hijriDate,
+      'HIJRI_DATE_NUM': ArabicDateHelper.formatHijriNumeric(marriage.hijriDate),
+      'HIJRI_DATE_WORDS': ArabicDateHelper.formatHijriInWords(marriage.hijriDate),
+      'GREGORIAN_DATE': gregorianStr.isNotEmpty ? gregorianStr : (marriage.gregorianDate != null
+          ? '${marriage.gregorianDate!.year}/${marriage.gregorianDate!.month.toString().padLeft(2, '0')}/${marriage.gregorianDate!.day.toString().padLeft(2, '0')}'
+          : ''),
+      'GREGORIAN_DATE_NUM': ArabicDateHelper.formatGregorianNumeric(marriage.gregorianDate),
+      'GREGORIAN_DATE_WORDS': ArabicDateHelper.formatGregorianInWords(marriage.gregorianDate),
       'HUSBAND_NAME': marriage.husband.name,
       'HUSBAND_ID_NUMBER': marriage.husband.idNumber,
       'WIFE_NAME': marriage.wife.name,
@@ -212,17 +225,22 @@ class DocxTemplateEngine {
       agency.title,
     );
 
-    final gregorianStr = agency.gregorianDate != null
-        ? '${agency.gregorianDate!.year}/${agency.gregorianDate!.month.toString().padLeft(2, '0')}/${agency.gregorianDate!.day.toString().padLeft(2, '0')}'
-        : '';
+    final hijriStr = ArabicDateHelper.formatHijriFull(agency.hijriDate);
+    final gregorianStr = ArabicDateHelper.formatGregorianFull(agency.gregorianDate);
 
     final placeholders = {
       'AGENCY_NUMBER': agency.agencyNumber,
       'AGENCY_TYPE': agency.agencyType,
       'AGENCY_TITLE': agency.title,
       'DAY_NAME': agency.dayName,
-      'HIJRI_DATE': agency.hijriDate,
-      'GREGORIAN_DATE': gregorianStr,
+      'HIJRI_DATE': hijriStr.isNotEmpty ? hijriStr : agency.hijriDate,
+      'HIJRI_DATE_NUM': ArabicDateHelper.formatHijriNumeric(agency.hijriDate),
+      'HIJRI_DATE_WORDS': ArabicDateHelper.formatHijriInWords(agency.hijriDate),
+      'GREGORIAN_DATE': gregorianStr.isNotEmpty ? gregorianStr : (agency.gregorianDate != null
+          ? '${agency.gregorianDate!.year}/${agency.gregorianDate!.month.toString().padLeft(2, '0')}/${agency.gregorianDate!.day.toString().padLeft(2, '0')}'
+          : ''),
+      'GREGORIAN_DATE_NUM': ArabicDateHelper.formatGregorianNumeric(agency.gregorianDate),
+      'GREGORIAN_DATE_WORDS': ArabicDateHelper.formatGregorianInWords(agency.gregorianDate),
       // Principal
       'PRINCIPAL_NAME': agency.principal.name,
       'PRINCIPAL_ID_TYPE': agency.principal.idType,

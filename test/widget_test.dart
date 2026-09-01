@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:marriage_agency_app/core/sync/sync_status.dart';
+import 'package:marriage_agency_app/core/utils/arabic_date_helper.dart';
 import 'package:marriage_agency_app/features/marriages/data/models/marriage_model.dart';
 import 'package:marriage_agency_app/features/agencies/data/models/agency_model.dart';
 
@@ -128,6 +129,58 @@ void main() {
         wifeDelivery: const DeliveryInfo(isDelivered: true),
       );
       expect(completed.isFullyDelivered, isTrue);
+    });
+
+    test('Agency isDelivered detection', () {
+      final now = DateTime.now();
+      final agency = AgencyModel(
+        id: 'a-2',
+        agencyNumber: '201',
+        title: 'وكالة بيع',
+        deliveryInfo: const DeliveryInfo(isDelivered: true),
+        lastStatusUpdate: now,
+        createdAt: now,
+      );
+      expect(agency.deliveryInfo.isDelivered, true);
+    });
+  });
+
+  group('ArabicDateHelper Tests', () {
+    test('Gregorian date numbers and words', () {
+      final date = DateTime(2026, 9, 1);
+      final numeric = ArabicDateHelper.formatGregorianNumeric(date);
+      final words = ArabicDateHelper.formatGregorianInWords(date);
+      final full = ArabicDateHelper.formatGregorianFull(date);
+
+      expect(numeric, '01/09/2026م');
+      expect(words, contains('الأول'));
+      expect(words, contains('سبتمبر'));
+      expect(words, contains('ألفين وست'));
+      expect(full, '01/09/2026م ($words)');
+    });
+
+    test('Hijri date numbers and words', () {
+      final hijriStr = '1447/09/12';
+      final numeric = ArabicDateHelper.formatHijriNumeric(hijriStr);
+      final words = ArabicDateHelper.formatHijriInWords(hijriStr);
+      final full = ArabicDateHelper.formatHijriFull(hijriStr);
+
+      expect(numeric, '12/09/1447هـ');
+      expect(words, contains('الثاني عشر'));
+      expect(words, contains('رمضان'));
+      expect(words, contains('ألف وأربعمائة وسبع وأربعين'));
+      expect(full, '12/09/1447هـ ($words)');
+    });
+
+    test('Hijri date with DD/MM/YYYY format input', () {
+      final hijriStr = '25/08/1446';
+      final numeric = ArabicDateHelper.formatHijriNumeric(hijriStr);
+      final words = ArabicDateHelper.formatHijriInWords(hijriStr);
+
+      expect(numeric, '25/08/1446هـ');
+      expect(words, contains('الخامس والعشرين'));
+      expect(words, contains('شعبان'));
+      expect(words, contains('ألف وأربعمائة وست وأربعين'));
     });
   });
 }

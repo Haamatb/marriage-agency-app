@@ -73,7 +73,7 @@ class _AgencyDetailScreenState extends ConsumerState<AgencyDetailScreen> {
               _buildDeliverySection(),
               const SizedBox(height: 16),
               _buildPartyCard('الموكل', _agency.principal),
-              _buildPartyCard('الموكل إليه', _agency.agent),
+              _buildPartyCard('الوكيل', _agency.agent),
               _buildWitnessesCard(),
               if (isDesktop) ...[
                 const SizedBox(height: 16),

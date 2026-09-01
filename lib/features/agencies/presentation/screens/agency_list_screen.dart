@@ -658,7 +658,7 @@ class _AgencyCard extends StatelessWidget {
                     const SizedBox(width: 4),
                     Expanded(
                       child: Text(
-                        'الموكل: ${agency.principal.name}  |  الموكل إليه: ${agency.agent.name}',
+                        'الموكل: ${agency.principal.name}  |  الوكيل: ${agency.agent.name}',
                         style: GoogleFonts.cairo(
                           fontSize: 11,
                           fontWeight: FontWeight.w600,
